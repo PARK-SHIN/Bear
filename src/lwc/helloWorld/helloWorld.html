@@ -1,0 +1,21 @@
+<!--
+ - Created by i2max-ShinPark on 2022-07-04.
+ -->
+
+<!-- Hello World -->
+<template>
+
+
+
+        <lightning-card  title="Two way data binding">
+            <div class="slds-var-m-around_medium">
+                <div>안녕 내 이름은 {details.fullname} 이고 나이는 {age}살이야 </div>
+                <div>{details.company}에 다니고 있어!</div>
+                <div>바인딩 텍스트 (나는 지금 {title}를 배우고 있어)</div>
+                <!--            <input type="text" onkeyup={changeHandler}/>-->
+                <lightning-input type="text" label="Enter Course Name>" onkeyup={changeHandler}>
+                </lightning-input>
+            </div>
+        </lightning-card>
+
+</template>
