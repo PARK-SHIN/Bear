@@ -5,17 +5,35 @@
 <!-- Hello World -->
 <template>
 
+    <!--  Binding -->
+    <lightning-card  title="Two way data binding">
+        <div class="slds-var-m-around_medium">
+            <div>안녕 내 이름은 {details.fullname} 이고 나이는 {age}살이야 </div>
+            <div>{details.company}에 다니고 있어!</div>
+            <div>바인딩 텍스트 (나는 지금 {title}를 배우고 있어)</div>
+            <!--            <input type="text" onkeyup={changeHandler}/>-->
+            <lightning-input type="text" label="Enter Course Name>" onkeyup={changeHandler}>
+            </lightning-input>
+        </div>
+    </lightning-card>
 
+    <!--  @track  -->
+    <lightning-card  title="@track properties">
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="text" label="Enter City Name>" onkeyup={trackHandler}>
+            </lightning-input>
+            <div>{address.city} is my city</div>
+            <div>{userList}</div>
+        </div>
+    </lightning-card>
 
-        <lightning-card  title="Two way data binding">
-            <div class="slds-var-m-around_medium">
-                <div>안녕 내 이름은 {details.fullname} 이고 나이는 {age}살이야 </div>
-                <div>{details.company}에 다니고 있어!</div>
-                <div>바인딩 텍스트 (나는 지금 {title}를 배우고 있어)</div>
-                <!--            <input type="text" onkeyup={changeHandler}/>-->
-                <lightning-input type="text" label="Enter Course Name>" onkeyup={changeHandler}>
-                </lightning-input>
-            </div>
-        </lightning-card>
+    <!-- Getter -->
+    <lightning-card  title="Getter Demo">
+        <div class="slds-var-m-around_medium">
+            <div>First user : {firstUser}</div>
+            <div>Multiplication of {num1} and {num2} is {multiply}</div>
+        </div>
+    </lightning-card>
+
 
 </template>
