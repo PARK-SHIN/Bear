@@ -4,22 +4,26 @@
 
 import { LightningElement ,api, wire, track} from 'lwc';
 import getAccountList from '@salesforce/apex/AccountHelper.getAccountList';
-   const columns = [
-        { label: 'Label', fieldName: 'name' },
-        { label: 'Website', fieldName: 'website', type: 'url' },
-        { label: 'Phone', fieldName: 'phone', type: 'phone' },
-        { label: 'Balance', fieldName: 'amount', type: 'currency' },
-        { label: 'CloseAt', fieldName: 'closeAt', type: 'date' },
-    ];
-
 
 export default class HelloConditionalRendering extends LightningElement {
     isVisible = false
+    name
 
     handleClick(){
-        this.isVisible = true
+        if(isVisible == true){
+            this.isVisible = false
+        } else{
+            this.isVisible = true
+        }
     }
 
+    changeHandler(event){
+        this.name = event.target.value
+    }
+
+    get helloMethod(){
+        return this.name === 'hello'
+    }
 
     // Datatable
     @track columns = [{
@@ -67,11 +71,30 @@ export default class HelloConditionalRendering extends LightningElement {
             error,
             data
         }) {
-            if (data) {
+            if (data){
                 this.accList = data;
             } else if (error) {
                 this.error = error;
             }
+        }
+
+    getSelectedRec() {
+          var selectedRecords =  this.template.querySelector("lightning-datatable").getSelectedRows();
+          if(selectedRecords.length > 0){
+              console.log('selectedRecords are ', selectedRecords);
+
+              let ids = '';
+              selectedRecords.forEach(currentItem => {
+                  ids = ids + ',' + currentItem.Id;
+                  console.log(currentItem.Id);
+//                  this.template.querySelector('lightning-datable').id(currentItem.Id).disabled
+              });
+              this.selectedIds = ids.replace(/^,/, '');
+              this.lstSelectedRecords = selectedRecords;
+              alert(this.selectedIds);
+
+               this.template.querySelector("lightning-datatable").getSelectedRows().disabled
+          }
         }
 
 

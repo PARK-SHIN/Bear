@@ -11,13 +11,33 @@
             </lightning-button>
 
             <template if:true={isVisible}>
-                <div>Welcome to Zero to Hero series!</div>
+                <div>Welcome to Zero to Hero series</div>
+            </template>
+            <template if:false={isVisible}>
+                <div>You can't see the Data. Please click the button</div>
             </template>
         </div>
 
+        <lightning-input type="text" label="Type hello to see the data!" onkeyup={changeHandler}>
+        </lightning-input>
+        <template if:true={helloMethod}>
+            <div>Hurray!! You have typed currently</div>
+        </template>
+
+
     <!--  DataTable  -->
         <template if:true={accList}>
-            <lightning-datatable data={accList} columns={columns} key-field="Id">
+            <lightning-button   variant="neutral"
+                                label="Selected Records"
+                                title="Selected Records"
+                                onclick={getSelectedRec}
+                                slot="actions"
+                                icon-name="utility:check">
+            </lightning-button>
+            <lightning-datatable
+                    data={accList}
+                    columns={columns}
+                    key-field="Id" >
             </lightning-datatable>
         </template>
         <template if:true={error}>
@@ -25,6 +45,10 @@
         </template>
 
 
+
+
+
+<!--https://solveforum.com/forums/threads/solved-how-to-disable-checkbox-of-a-row-in-lwc-datatable.356522/ -->
     </lightning-card>
 
 </template>
