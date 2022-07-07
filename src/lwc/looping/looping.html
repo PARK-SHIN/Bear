@@ -3,6 +3,8 @@
  -->
 
 <!-- Looping -->
+
+<!-- Looping - for:each -->
 <template>
     <lightning-card title="for:each loop">
         <div class="slds-var-m-around_medium">
@@ -26,6 +28,7 @@
         </div>
     </lightning-card>
 
+    <!-- Looping - iterator (를 더 선호한다.벼) -->
     <lightning-card title="iterator loop">
         <div class="slds-var-m-around_medium">
             <template iterator:ceo={ceoList}>
@@ -47,7 +50,7 @@
                         <template if:true={ceo.last}>
                             <div class="slds-box slds-theme_shade">
                                 <strong>
-                                    Thanks for reading the list
+                                    Thanks for reading the list!!
                                 </strong>
                             </div>
                         </template>
@@ -55,5 +58,19 @@
                 </div>
             </template>
         </div>
+    </lightning-card>
+
+
+    <!--  iterator  -->
+    <lightning-card>
+        <template iterator:ceo={ceoList}>
+            <div key={ceo.value.id}>
+                <div>{ceo.value.id}</div>
+                <div>{ceo.first}</div>
+                <div>{ceo.last}</div>
+                <div>{ceo.value.company}</div>
+                <div>----------------</div>
+            </div>
+        </template>
     </lightning-card>
 </template>
