@@ -4,10 +4,10 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="Bear" />
+          <option name="connectionName" value="LWC" />
           <option name="connectionType" value="OAUTH" />
           <option name="defaultModuleName" value="Bear1" />
-          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/Bear/OfflineSymbolTable.zip" />
+          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/LWC/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>
       </list>
     </option>
