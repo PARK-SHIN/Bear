@@ -14,6 +14,8 @@ export default class BearLocation extends LightningElement {
   name;
   mapMarkers = [];
   @wire(getRecord, { recordId: '$recordId', fields: bearFields })
+
+
   loadBear({ error, data }) {
     if (error) {
       // TODO: handle error
@@ -22,10 +24,13 @@ export default class BearLocation extends LightningElement {
       this.name =  getFieldValue(data, NAME_FIELD);
       const Latitude = getFieldValue(data, LOCATION_LATITUDE_FIELD);
       const Longitude = getFieldValue(data, LOCATION_LONGITUDE_FIELD);
+
       // Transform bear data into map markers
       this.mapMarkers = [{
         location: { Latitude, Longitude },
+        // 마커를 클릭하면 위치 텍스트
         title: this.name,
+        // 마커를 클릭하면 나오는 정보
         description: `Coords: ${Latitude}, ${Longitude}`
       }];
     }
